@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.9.20 on linux)" generated="2024-11-05T20:08:15.275300" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="/usr/src/app/tests">
+<suite id="s1-s1" name="Delete Email" source="/usr/src/app/tests/delete_email.robot">
+<test id="s1-s1-t1" name="Delete Email Test" line="7">
+<kw name="List Emails" owner="GmailKeywords">
+<msg time="2024-11-05T20:08:15.845068" level="INFO">${emails} = [{'id': '192fde0748202532', 'threadId': '192fde0748202532'}, {'id': '192fdafe9471ab87', 'threadId': '192fdafe9471ab87'}, {'id': '192fb50149ac2f5b', 'threadId': '192fb50149ac2f5b'}, {'id': '192f685b4be...</msg>
+<var>${emails}</var>
+<arg>5</arg>
+<doc>Lists the latest emails.</doc>
+<status status="PASS" start="2024-11-05T20:08:15.550458" elapsed="0.294647"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-11-05T20:08:15.845365" level="INFO">${first_email} = {'id': '192fde0748202532', 'threadId': '192fde0748202532'}</msg>
+<var>${first_email}</var>
+<arg>${emails}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-11-05T20:08:15.845227" elapsed="0.000151"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-11-05T20:08:15.845532" level="INFO">${email_id} = 192fde0748202532</msg>
+<var>${email_id}</var>
+<arg>${first_email}</arg>
+<arg>id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-11-05T20:08:15.845438" elapsed="0.000105"/>
+</kw>
+<kw name="Delete Email" owner="GmailKeywords">
+<msg time="2024-11-05T20:08:15.865863" level="WARN">Encountered 403 Forbidden with reason "insufficientPermissions"</msg>
+<msg time="2024-11-05T20:08:15.866039" level="FAIL">HttpError: &lt;HttpError 403 when requesting https://gmail.googleapis.com/gmail/v1/users/me/messages/192fde0748202532? returned "Request had insufficient authentication scopes.". Details: "[{'message': 'Insufficient Permission', 'domain': 'global', 'reason': 'insufficientPermissions'}]"&gt;</msg>
+<arg>${email_id}</arg>
+<doc>Deletes an email by message ID.</doc>
+<status status="FAIL" start="2024-11-05T20:08:15.845596" elapsed="0.023752">HttpError: &lt;HttpError 403 when requesting https://gmail.googleapis.com/gmail/v1/users/me/messages/192fde0748202532? returned "Request had insufficient authentication scopes.". Details: "[{'message': 'Insufficient Permission', 'domain': 'global', 'reason': 'insufficientPermissions'}]"&gt;</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Email deleted successfully</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-11-05T20:08:15.869473" elapsed="0.000014"/>
+</kw>
+<status status="FAIL" start="2024-11-05T20:08:15.549190" elapsed="0.320412">HttpError: &lt;HttpError 403 when requesting https://gmail.googleapis.com/gmail/v1/users/me/messages/192fde0748202532? returned "Request had insufficient authentication scopes.". Details: "[{'message': 'Insufficient Permission', 'domain': 'global', 'reason': 'insufficientPermissions'}]"&gt;</status>
+</test>
+<status status="FAIL" start="2024-11-05T20:08:15.297811" elapsed="0.572070"/>
+</suite>
+<suite id="s1-s2" name="List Emails" source="/usr/src/app/tests/list_emails.robot">
+<test id="s1-s2-t1" name="List Emails Test" line="5">
+<kw name="List Emails" owner="GmailKeywords">
+<msg time="2024-11-05T20:08:16.109477" level="INFO">${emails} = [{'id': '192fde0748202532', 'threadId': '192fde0748202532'}, {'id': '192fdafe9471ab87', 'threadId': '192fdafe9471ab87'}, {'id': '192fb50149ac2f5b', 'threadId': '192fb50149ac2f5b'}, {'id': '192f685b4be...</msg>
+<var>${emails}</var>
+<arg>5</arg>
+<doc>Lists the latest emails.</doc>
+<status status="PASS" start="2024-11-05T20:08:15.871623" elapsed="0.237907"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-11-05T20:08:16.109910" level="INFO">Retrieved Emails: [{'id': '192fde0748202532', 'threadId': '192fde0748202532'}, {'id': '192fdafe9471ab87', 'threadId': '192fdafe9471ab87'}, {'id': '192fb50149ac2f5b', 'threadId': '192fb50149ac2f5b'}, {'id': '192f685b4be37ae1', 'threadId': '192f685b4be37ae1'}, {'id': '192f4eeeb4b6c11f', 'threadId': '192f4eeeb4b6c11f'}]</msg>
+<arg>Retrieved Emails: ${emails}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-11-05T20:08:16.109728" elapsed="0.000214"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-11-05T20:08:16.110155" level="INFO">Length is 5.</msg>
+<arg>${emails}</arg>
+<arg>No emails found</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-11-05T20:08:16.110016" elapsed="0.000166"/>
+</kw>
+<status status="PASS" start="2024-11-05T20:08:15.871433" elapsed="0.238836"/>
+</test>
+<status status="PASS" start="2024-11-05T20:08:15.870190" elapsed="0.240275"/>
+</suite>
+<suite id="s1-s3" name="Read Email" source="/usr/src/app/tests/read_email.robot">
+<test id="s1-s3-t1" name="Read Email Content Test" line="7">
+<kw name="List Emails" owner="GmailKeywords">
+<msg time="2024-11-05T20:08:16.362171" level="INFO">${emails} = [{'id': '192fde0748202532', 'threadId': '192fde0748202532'}, {'id': '192fdafe9471ab87', 'threadId': '192fdafe9471ab87'}, {'id': '192fb50149ac2f5b', 'threadId': '192fb50149ac2f5b'}, {'id': '192f685b4be...</msg>
+<var>${emails}</var>
+<arg>5</arg>
+<doc>Lists the latest emails.</doc>
+<status status="PASS" start="2024-11-05T20:08:16.113066" elapsed="0.249133"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-11-05T20:08:16.362462" level="INFO">${first_email} = {'id': '192fde0748202532', 'threadId': '192fde0748202532'}</msg>
+<var>${first_email}</var>
+<arg>${emails}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-11-05T20:08:16.362319" elapsed="0.000157"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-11-05T20:08:16.362641" level="INFO">${email_id} = 192fde0748202532</msg>
+<var>${email_id}</var>
+<arg>${first_email}</arg>
+<arg>id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-11-05T20:08:16.362542" elapsed="0.000111"/>
+</kw>
+<kw name="Get Email Content" owner="GmailKeywords">
+<msg time="2024-11-05T20:08:16.560906" level="INFO">${content} = {'id': '192fde0748202532', 'threadId': '192fde0748202532', 'labelIds': ['SENT', 'INBOX'], 'snippet': 'This is a test email sent by Robot Framework.', 'payload': {'partId': '', 'mimeType': 'text/plain'...</msg>
+<var>${content}</var>
+<arg>${email_id}</arg>
+<doc>Retrieves the email content by message ID.</doc>
+<status status="PASS" start="2024-11-05T20:08:16.362711" elapsed="0.198228"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-11-05T20:08:16.561264" level="INFO">Email content: {'id': '192fde0748202532', 'threadId': '192fde0748202532', 'labelIds': ['SENT', 'INBOX'], 'snippet': 'This is a test email sent by Robot Framework.', 'payload': {'partId': '', 'mimeType': 'text/plain', 'filename': '', 'headers': [{'name': 'Received', 'value': 'from 641182090073 named unknown by gmailapi.google.com with HTTPREST; Tue, 5 Nov 2024 13:49:58 -0600'}, {'name': 'Content-Type', 'value': 'text/plain; charset="us-ascii"'}, {'name': 'MIME-Version', 'value': '1.0'}, {'name': 'Content-Transfer-Encoding', 'value': '7bit'}, {'name': 'to', 'value': 'ranahandol.khirod13@gmail.com'}, {'name': 'subject', 'value': 'Test Email'}, {'name': 'Date', 'value': 'Tue, 5 Nov 2024 13:49:58 -0600'}, {'name': 'Message-Id', 'value': '&lt;CAPyYj5i0Nox0yCF0_MB9gri7jcOsDjL0gAVg5iCFp6rzyiPArw@mail.gmail.com&gt;'}, {'name': 'From', 'value': 'ranahandol.khirod13@gmail.com'}], 'body': {'size': 45, 'data': 'VGhpcyBpcyBhIHRlc3QgZW1haWwgc2VudCBieSBSb2JvdCBGcmFtZXdvcmsu'}}, 'sizeEstimate': 478, 'historyId': '505612', 'internalDate': '1730836198000'}</msg>
+<arg>Email content: ${content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-11-05T20:08:16.561104" elapsed="0.000197"/>
+</kw>
+<status status="PASS" start="2024-11-05T20:08:16.112702" elapsed="0.448671"/>
+</test>
+<status status="PASS" start="2024-11-05T20:08:16.110752" elapsed="0.451012"/>
+</suite>
+<suite id="s1-s4" name="Send Email" source="/usr/src/app/tests/send_email.robot">
+<test id="s1-s4-t1" name="Send Email Test" line="10">
+<kw name="Send Email" owner="GmailKeywords">
+<arg>${TO_EMAIL}</arg>
+<arg>${SUBJECT}</arg>
+<arg>${BODY}</arg>
+<doc>Sends an email.</doc>
+<status status="PASS" start="2024-11-05T20:08:16.563437" elapsed="0.441591"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-11-05T20:08:17.005305" level="INFO">Email sent successfully</msg>
+<arg>Email sent successfully</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-11-05T20:08:17.005201" elapsed="0.000130"/>
+</kw>
+<status status="PASS" start="2024-11-05T20:08:16.563219" elapsed="0.442188"/>
+</test>
+<status status="PASS" start="2024-11-05T20:08:16.562038" elapsed="0.443567"/>
+</suite>
+<status status="FAIL" start="2024-11-05T20:08:15.276995" elapsed="1.729008"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="1" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Delete Email">Tests.Delete Email</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s2" name="List Emails">Tests.List Emails</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s3" name="Read Email">Tests.Read Email</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s4" name="Send Email">Tests.Send Email</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-11-05T20:08:15.865863" level="WARN">Encountered 403 Forbidden with reason "insufficientPermissions"</msg>
+</errors>
+</robot>

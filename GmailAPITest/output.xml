@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.10.6 on darwin)" generated="2024-11-11T16:18:32.228990" rpa="false" schemaversion="5">
+<suite id="s1" name="List Emails" source="/Users/monalisanayak/Documents/GMAILAssignment/GmailAPITest/tests/list_emails.robot">
+<test id="s1-t1" name="List Emails Test" line="5">
+<kw name="List Emails" owner="GmailKeywords">
+<msg time="2024-11-11T16:18:33.212281" level="INFO">${emails} = [{'id': '19314e1b52d54e97', 'threadId': '19314e1b52d54e97'}, {'id': '1930fc7c16da1c51', 'threadId': '1930fc7c16da1c51'}, {'id': '1930fbdd6f1045f6', 'threadId': '1930fbdd6f1045f6'}, {'id': '1930b3706c3...</msg>
+<var>${emails}</var>
+<arg>5</arg>
+<doc>Lists the latest emails.</doc>
+<status status="PASS" start="2024-11-11T16:18:32.910456" elapsed="0.301894"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-11-11T16:18:33.212953" level="INFO">Retrieved Emails: [{'id': '19314e1b52d54e97', 'threadId': '19314e1b52d54e97'}, {'id': '1930fc7c16da1c51', 'threadId': '1930fc7c16da1c51'}, {'id': '1930fbdd6f1045f6', 'threadId': '1930fbdd6f1045f6'}, {'id': '1930b3706c33b4c1', 'threadId': '1930b3706c33b4c1'}, {'id': '19305e9fb81f2ec8', 'threadId': '19305e9fb81f2ec8'}]</msg>
+<arg>Retrieved Emails: ${emails}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-11-11T16:18:33.212670" elapsed="0.000368"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-11-11T16:18:33.213450" level="INFO">Length is 5.</msg>
+<arg>${emails}</arg>
+<arg>No emails found</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-11-11T16:18:33.213227" elapsed="0.000285"/>
+</kw>
+<status status="PASS" start="2024-11-11T16:18:32.909821" elapsed="0.303887"/>
+</test>
+<status status="PASS" start="2024-11-11T16:18:32.229953" elapsed="0.984275"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="List Emails">List Emails</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
