@@ -1,2 +1,3 @@
+# Ignore sensitive files
 config/credentials.json
 config/token.json
